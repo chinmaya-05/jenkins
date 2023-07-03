@@ -1,10 +1,13 @@
 pipeline {
     agent any
     environment{
-        ENV_URL= "pipeline.google.com"
+        ENV_URL= "pipeline.google.com" // pipeline variables
     }
     stages{
         stage('stage one'){
+            environment{
+                ENV_URL= "stage.google.com" // pipeline variables
+            }
             steps {
                 echo "This is stage one"
                 echo "Name of the URL is ${ENV_URL}"
@@ -20,6 +23,7 @@ pipeline {
         stage('stage Three'){
             steps {
                 echo "This is stage Three"
+                echo "Name of the URL is ${ENV_URL}"
             }
             
         }
